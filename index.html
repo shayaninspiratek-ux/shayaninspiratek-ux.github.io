@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shayan Rana | Amazon Brand Strategist & PPC Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #0A1628;
+      --navy-mid: #142240;
+      --gold: #C9952A;
+      --gold-light: #F0B940;
+      --cream: #FDFAF5;
+      --white: #FFFFFF;
+      --text-dark: #0D1B2A;
+      --text-mid: #3D4F63;
+      --text-light: #7A8FA6;
+      --border: #E4EAF2;
+      --shadow: rgba(10,22,40,0.10);
+      --shadow-gold: rgba(201,149,42,0.18);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw;
+      height: 70px;
+      background: rgba(253,250,245,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px var(--shadow); }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px;
+      background: var(--gold); border-radius:2px; transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-cta {
+      background: var(--navy); color: var(--white) !important;
+      padding: 8px 20px; border-radius: 6px;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta::after { display:none !important; }
+    .nav-cta:hover { background: var(--gold) !important; transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 6vw 80px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-shape {
+      position:absolute; top:-80px; right:-80px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(201,149,42,0.10) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse-bg 6s ease-in-out infinite;
+    }
+    .hero-bg-dots {
+      position:absolute; bottom:40px; left:6vw;
+      display:grid; grid-template-columns: repeat(8,1fr); gap:14px;
+      opacity:0.18;
+    }
+    .hero-bg-dots span {
+      width:5px; height:5px; background:var(--navy); border-radius:50%; display:block;
+    }
+    @keyframes pulse-bg { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.12);opacity:0.7;} }
+
+    .hero-inner {
+      display: flex; align-items: center; gap: 80px;
+      max-width: 1200px; margin: 0 auto; width:100%;
+      position: relative; z-index:1;
+    }
+    .hero-text { flex:1; }
+    .hero-badge {
+      display: inline-flex; align-items:center; gap:8px;
+      background: rgba(201,149,42,0.10); border: 1px solid rgba(201,149,42,0.3);
+      color: var(--gold); padding: 6px 14px; border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing:0.8px; text-transform:uppercase;
+      margin-bottom: 20px;
+      animation: fadeInDown 0.8s ease forwards;
+    }
+    .hero-badge i { font-size:0.7rem; }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.9s 0.1s ease both;
+    }
+    .hero-name span { color: var(--gold); }
+    .hero-title {
+      font-size: 1.1rem; font-weight: 500; color: var(--text-mid);
+      margin-bottom: 24px;
+      animation: fadeInUp 0.9s 0.2s ease both;
+    }
+    .hero-title strong { color: var(--navy); }
+    .hero-desc {
+      font-size: 0.97rem; line-height: 1.8; color: var(--text-mid);
+      max-width: 520px; margin-bottom: 36px;
+      animation: fadeInUp 0.9s 0.3s ease both;
+    }
+    .hero-stats {
+      display: flex; gap: 32px; margin-bottom: 36px;
+      animation: fadeInUp 0.9s 0.4s ease both;
+    }
+    .stat { text-align:left; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 700; color: var(--navy); line-height:1;
+    }
+    .stat-num span { color: var(--gold); }
+    .stat-label { font-size: 0.78rem; color: var(--text-light); font-weight:500; margin-top:3px; }
+    .hero-btns {
+      display:flex; gap:14px; flex-wrap:wrap;
+      animation: fadeInUp 0.9s 0.5s ease both;
+    }
+    .btn-primary {
+      background: var(--navy); color: var(--white);
+      padding: 13px 28px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; letter-spacing:0.3px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow-gold); }
+    .btn-outline {
+      border: 2px solid var(--navy); color: var(--navy);
+      padding: 12px 28px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; letter-spacing:0.3px;
+      transition: all 0.2s;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); }
+
+    /* ─── HERO IMAGE ─── */
+    .hero-image { flex-shrink:0; animation: fadeInRight 1s 0.2s ease both; }
+    .img-wrapper {
+      position:relative; width:300px; height:300px;
+    }
+    .img-ring-outer {
+      position:absolute; inset:-18px;
+      border-radius:50%;
+      border: 2px dashed rgba(201,149,42,0.4);
+      animation: spin-slow 18s linear infinite;
+    }
+    .img-ring-inner {
+      position:absolute; inset:-8px;
+      border-radius:50%;
+      background: conic-gradient(var(--gold-light), transparent, var(--gold), transparent, var(--gold-light));
+      opacity:0.5;
+      animation: spin-slow 10s linear infinite reverse;
+      filter: blur(2px);
+    }
+    .img-glow {
+      position:absolute; inset:-4px; border-radius:50%;
+      box-shadow: 0 0 40px rgba(201,149,42,0.3), 0 0 80px rgba(201,149,42,0.1);
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    @keyframes glow-pulse { 0%,100%{box-shadow:0 0 40px rgba(201,149,42,0.3);} 50%{box-shadow:0 0 60px rgba(201,149,42,0.55);} }
+
+    .profile-photo {
+      width:300px; height:300px; border-radius:50%;
+      object-fit:cover;
+      position:relative; z-index:2;
+      animation: float 5s ease-in-out infinite;
+      border: 4px solid var(--white);
+      box-shadow: 0 16px 48px var(--shadow);
+    }
+    .profile-initials {
+      width:300px; height:300px; border-radius:50%;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Playfair Display',serif;
+      font-size:4.5rem; font-weight:900; color:var(--gold);
+      position:relative; z-index:2;
+      animation: float 5s ease-in-out infinite;
+      border: 4px solid var(--white);
+      box-shadow: 0 16px 48px var(--shadow);
+      letter-spacing:2px;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+
+    .img-badge {
+      position:absolute; bottom:14px; right:-14px; z-index:10;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 24px var(--shadow);
+      display:flex; align-items:center; gap:8px;
+      animation: float 5s 0.5s ease-in-out infinite;
+    }
+    .img-badge-icon { font-size:1.2rem; }
+    .img-badge-text { font-size:0.75rem; font-weight:600; color:var(--navy); line-height:1.3; }
+    .img-badge-text span { color:var(--text-light); font-weight:400; display:block; }
+
+    .img-badge2 {
+      position:absolute; top:20px; left:-20px; z-index:10;
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 24px rgba(10,22,40,0.2);
+      display:flex; align-items:center; gap:8px;
+      animation: float 5s 1s ease-in-out infinite;
+    }
+    .img-badge2-text { font-size:0.75rem; font-weight:600; color:var(--white); line-height:1.3; }
+    .img-badge2-text span { color:var(--gold); display:block; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 100px 6vw; }
+    .section-inner { max-width:1200px; margin:0 auto; }
+    .section-label {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:0.75rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+      color:var(--gold); margin-bottom:12px;
+    }
+    .section-label::before { content:''; width:28px; height:2px; background:var(--gold); border-radius:2px; }
+    .section-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.9rem,3vw,2.8rem);
+      font-weight:800; color:var(--navy); line-height:1.15;
+      margin-bottom:16px;
+    }
+    .section-sub { font-size:0.97rem; color:var(--text-light); max-width:560px; line-height:1.7; }
+    .divider { width:60px; height:3px; background:var(--gold); border-radius:2px; margin: 18px 0 48px; }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--cream); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .about-text p { font-size:0.97rem; line-height:1.85; color:var(--text-mid); margin-bottom:18px; }
+    .about-highlights { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px; }
+    .highlight-card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:12px; padding:18px;
+      display:flex; align-items:flex-start; gap:12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .highlight-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px var(--shadow); }
+    .highlight-icon {
+      width:38px; height:38px; border-radius:9px;
+      background: rgba(201,149,42,0.10);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); font-size:0.9rem; flex-shrink:0;
+    }
+    .highlight-info h4 { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:3px; }
+    .highlight-info p { font-size:0.78rem; color:var(--text-light); line-height:1.5; }
+    .about-tools { margin-top:40px; }
+    .about-tools h4 { font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-light); margin-bottom:14px; }
+    .tools-list { display:flex; flex-wrap:wrap; gap:10px; }
+    .tool-tag {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:6px; padding:6px 12px;
+      font-size:0.8rem; font-weight:500; color:var(--text-mid);
+      font-family:'DM Mono',monospace;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tool-tag:hover { border-color:var(--gold); color:var(--gold); }
+
+    /* ─── SKILLS ─── */
+    #skills { background: var(--white); }
+    .skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .skill-card {
+      background: var(--cream); border:1px solid var(--border);
+      border-radius:16px; padding:28px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position:relative; overflow:hidden;
+    }
+    .skill-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0); transform-origin:left;
+      transition: transform 0.3s;
+    }
+    .skill-card:hover::before { transform:scaleX(1); }
+    .skill-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px var(--shadow); border-color:rgba(201,149,42,0.25); }
+    .skill-icon {
+      width:52px; height:52px; border-radius:12px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold-light); font-size:1.3rem; margin-bottom:18px;
+    }
+    .skill-card h3 { font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .skill-card p { font-size:0.83rem; color:var(--text-light); line-height:1.6; margin-bottom:16px; }
+    .skill-bars { display:flex; flex-direction:column; gap:10px; }
+    .bar-row { }
+    .bar-label { display:flex; justify-content:space-between; margin-bottom:5px; }
+    .bar-label span { font-size:0.78rem; font-weight:500; color:var(--text-mid); }
+    .bar-label strong { font-size:0.78rem; color:var(--gold); font-family:'DM Mono',monospace; }
+    .bar-track { height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
+    .bar-fill { height:100%; background:linear-gradient(90deg,var(--navy),var(--gold)); border-radius:3px; width:0; transition: width 1.2s ease; }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { background:var(--cream); }
+    .timeline { position:relative; padding-left:36px; }
+    .timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--border); }
+    .timeline-item { position:relative; margin-bottom:48px; }
+    .timeline-dot {
+      position:absolute; left:-36px; top:4px;
+      width:18px; height:18px; border-radius:50%;
+      background:var(--white); border:3px solid var(--gold);
+      box-shadow:0 0 0 4px rgba(201,149,42,0.15);
+      transition: transform 0.2s;
+    }
+    .timeline-item:hover .timeline-dot { transform:scale(1.3); }
+    .timeline-card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:16px; padding:28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .timeline-item:hover .timeline-card { transform:translateX(4px); box-shadow:0 8px 32px var(--shadow); }
+    .timeline-header { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:14px; }
+    .timeline-company { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--navy); }
+    .timeline-role { font-size:0.9rem; font-weight:600; color:var(--gold); margin-top:3px; }
+    .timeline-date {
+      background: rgba(201,149,42,0.08); border:1px solid rgba(201,149,42,0.2);
+      color:var(--gold); padding:5px 12px; border-radius:20px;
+      font-size:0.78rem; font-weight:600; font-family:'DM Mono',monospace;
+      white-space:nowrap;
+    }
+    .timeline-location { font-size:0.82rem; color:var(--text-light); margin-bottom:16px; display:flex; align-items:center; gap:6px; }
+    .timeline-body { font-size:0.9rem; color:var(--text-mid); line-height:1.75; }
+    .timeline-body ul { padding-left:18px; }
+    .timeline-body li { margin-bottom:8px; }
+    .timeline-body li::marker { color:var(--gold); }
+    .timeline-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+    .t-tag {
+      background:var(--cream); border:1px solid var(--border);
+      padding:4px 10px; border-radius:5px;
+      font-size:0.75rem; font-weight:500; color:var(--text-mid);
+      font-family:'DM Mono',monospace;
+    }
+
+    /* ─── EDUCATION ─── */
+    #education { background:var(--white); }
+    .edu-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .edu-card {
+      background:var(--cream); border:1px solid var(--border);
+      border-radius:16px; padding:28px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position:relative; overflow:hidden;
+    }
+    .edu-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-light));
+      transform:scaleX(0); transform-origin:left; transition:transform 0.3s;
+    }
+    .edu-card:hover::after { transform:scaleX(1); }
+    .edu-card:hover { transform:translateY(-4px); box-shadow:0 12px 36px var(--shadow); }
+    .edu-icon {
+      width:48px; height:48px; border-radius:12px;
+      background:linear-gradient(135deg,var(--navy),var(--navy-mid));
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold-light); font-size:1.1rem; margin-bottom:18px;
+    }
+    .edu-degree { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
+    .edu-field { font-size:0.88rem; font-weight:600; color:var(--gold); margin-bottom:8px; }
+    .edu-school { font-size:0.88rem; color:var(--text-mid); margin-bottom:12px; display:flex; align-items:center; gap:6px; }
+    .edu-dates {
+      display:inline-flex; align-items:center; gap:6px;
+      background:var(--white); border:1px solid var(--border);
+      padding:5px 12px; border-radius:6px;
+      font-size:0.78rem; font-weight:500; color:var(--text-light);
+      font-family:'DM Mono',monospace;
+    }
+
+    /* ─── EVENTS ─── */
+    #events { background:var(--cream); }
+    .events-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .event-card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:16px; padding:28px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position:relative; overflow:hidden;
+    }
+    .event-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px var(--shadow); }
+    .event-number {
+      font-family:'Playfair Display',serif;
+      font-size:3.5rem; font-weight:900;
+      color:rgba(201,149,42,0.10); position:absolute; top:14px; right:18px;
+      line-height:1;
+    }
+    .event-icon {
+      width:44px; height:44px; border-radius:10px;
+      background:rgba(201,149,42,0.10);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); font-size:1rem; margin-bottom:16px;
+    }
+    .event-title { font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .event-date { font-size:0.78rem; font-weight:600; color:var(--gold); font-family:'DM Mono',monospace; margin-bottom:10px; display:flex; align-items:center; gap:5px; }
+    .event-desc { font-size:0.85rem; color:var(--text-light); line-height:1.65; }
+    .event-badge {
+      display:inline-flex; align-items:center; gap:5px;
+      background:rgba(10,22,40,0.05); border-radius:5px;
+      padding:4px 10px; font-size:0.75rem; font-weight:600;
+      color:var(--text-mid); margin-top:14px;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { background:var(--navy); position:relative; overflow:hidden; }
+    .contact-bg { position:absolute; inset:0; background: radial-gradient(ellipse at 70% 50%, rgba(201,149,42,0.08) 0%, transparent 60%); }
+    .contact-inner { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .contact-left .section-label { color:var(--gold-light); }
+    .contact-left .section-label::before { background:var(--gold-light); }
+    .contact-left .section-title { color:var(--white); }
+    .contact-left .section-sub { color:rgba(255,255,255,0.55); }
+    .contact-items { margin-top:40px; display:flex; flex-direction:column; gap:20px; }
+    .contact-item {
+      display:flex; align-items:center; gap:16px;
+      padding:18px; background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:12px;
+      text-decoration:none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-item:hover { background:rgba(201,149,42,0.12); transform:translateX(6px); border-color:rgba(201,149,42,0.3); }
+    .contact-icon {
+      width:44px; height:44px; border-radius:10px;
+      background:rgba(201,149,42,0.15);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold-light); font-size:1rem; flex-shrink:0;
+    }
+    .contact-info strong { font-size:0.8rem; font-weight:700; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:1px; display:block; }
+    .contact-info span { font-size:0.95rem; color:var(--white); font-weight:500; }
+
+    .contact-right { text-align:center; }
+    .contact-cta-box {
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);
+      border-radius:20px; padding:44px 36px;
+    }
+    .contact-cta-box h3 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--white); margin-bottom:12px; }
+    .contact-cta-box p { font-size:0.9rem; color:rgba(255,255,255,0.5); margin-bottom:28px; line-height:1.7; }
+    .btn-gold {
+      background:linear-gradient(135deg,var(--gold),var(--gold-light));
+      color:var(--navy); padding:14px 32px; border-radius:9px;
+      font-size:0.92rem; font-weight:700; text-decoration:none;
+      display:inline-flex; align-items:center; gap:9px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing:0.3px;
+    }
+    .btn-gold:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(201,149,42,0.35); }
+    .social-links { display:flex; gap:12px; justify-content:center; margin-top:24px; }
+    .social-link {
+      width:44px; height:44px; border-radius:10px;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(255,255,255,0.6); font-size:1rem;
+      text-decoration:none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-link:hover { background:var(--gold); color:var(--navy); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background:var(--navy); border-top:1px solid rgba(255,255,255,0.06);
+      padding:28px 6vw; text-align:center;
+    }
+    footer p { font-size:0.82rem; color:rgba(255,255,255,0.3); }
+    footer span { color:var(--gold); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeInRight { from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);} }
+    .fade-in { opacity:0; transform:translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity:1; transform:none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:900px) {
+      .hero-inner { flex-direction:column-reverse; gap:48px; text-align:center; }
+      .hero-desc { margin:0 auto 36px; }
+      .hero-stats { justify-content:center; }
+      .hero-btns { justify-content:center; }
+      .about-grid,.contact-grid,.edu-grid { grid-template-columns:1fr; gap:40px; }
+      .skills-grid,.events-grid { grid-template-columns:1fr 1fr; }
+      .nav-links { display:none; }
+      .img-wrapper { width:240px; height:240px; }
+      .profile-initials,.profile-photo { width:240px; height:240px; font-size:3.5rem; }
+      .about-highlights { grid-template-columns:1fr; }
+    }
+    @media(max-width:600px) {
+      section { padding:70px 5vw; }
+      .skills-grid,.events-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Shayan<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-bg-dots">
+    <script>for(let i=0;i<48;i++)document.write('<span></span>')</script>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><i class="fa-solid fa-circle-check"></i> Available for New Projects</div>
+      <h1 class="hero-name">Shayan<br><span>Rana</span></h1>
+      <p class="hero-title"><strong>Amazon Brand Strategist</strong> · PPC Manager · CS Student</p>
+      <p class="hero-desc">Transforming Amazon brands from confusion to clarity through data-driven strategy, advanced PPC architecture, and deep market intelligence. Every decision backed by real data — not assumptions.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">$20k<span>+</span></div><div class="stat-label">Monthly Ad Spend</div></div>
+        <div class="stat"><div class="stat-num">180<span>+</span></div><div class="stat-label">Listings Optimized</div></div>
+        <div class="stat"><div class="stat-num">1<span>yr</span></div><div class="stat-label">Hands-on Experience</div></div>
+      </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary"><i class="fa-solid fa-envelope"></i> Get In Touch</a>
+        <a href="#experience" class="btn-outline"><i class="fa-solid fa-briefcase"></i> View Work</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="img-wrapper">
+        <div class="img-ring-outer"></div>
+        <div class="img-ring-inner"></div>
+        <div class="img-glow"></div>
+        <!--
+          TO ADD YOUR PHOTO:
+          1. Copy your photo into the same folder as this HTML file
+          2. Replace the <div class="profile-initials"> below with:
+             <img src="YOUR_PHOTO_NAME.jpg" class="profile-photo" alt="Shayan Rana">
+        -->
+        <div class="profile-initials">SR</div>
+        <div class="img-badge">
+          <div class="img-badge-icon">📊</div>
+          <div class="img-badge-text">PPC Expert<span>Amazon Ads</span></div>
+        </div>
+        <div class="img-badge2">
+          <div class="img-badge2-text">Lahore, PK <span>🇵🇰</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="fade-in">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Strategy-Driven Brand Growth Partner</h2>
+        <div class="divider"></div>
+        <div class="about-text">
+          <p>I'm <strong>Shayan Rana</strong>, a Computer Science student at The Superior University and an Amazon Brand Strategist by passion. My academic foundation in analytical thinking and structured problem-solving directly translates into how I approach every brand challenge.</p>
+          <p>What started as curiosity about e-commerce evolved into a deep understanding of how powerful the right strategy and data-backed systems can be. I don't just manage campaigns — I build systems that move brands from stagnation to sustainable, scalable growth.</p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="highlight-info"><h4>PPC Architecture</h4><p>Advanced campaign structure & budget scaling</p></div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <div class="highlight-info"><h4>Market Intelligence</h4><p>Deep competitor & opportunity analysis</p></div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-tags"></i></div>
+            <div class="highlight-info"><h4>SEO & Listings</h4><p>180+ listings optimized for indexing & conversions</p></div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="highlight-info"><h4>Catalog Management</h4><p>Variations, flat files & catalog structuring</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="about-tools">
+          <h4>Tools & Platforms</h4>
+          <div class="tools-list">
+            <span class="tool-tag">Helium 10</span>
+            <span class="tool-tag">Jungle Ace</span>
+            <span class="tool-tag">DataRova</span>
+            <span class="tool-tag">Data Dive</span>
+            <span class="tool-tag">ASINsight</span>
+            <span class="tool-tag">Amazon Seller Central</span>
+            <span class="tool-tag">Amazon Ads Console</span>
+            <span class="tool-tag">Flat Files</span>
+            <span class="tool-tag">Keyword Research</span>
+            <span class="tool-tag">PPC Management</span>
+            <span class="tool-tag">Competitor Analysis</span>
+            <span class="tool-tag">Python (Learning)</span>
+          </div>
+        </div>
+        <div style="margin-top:40px; background:var(--white); border:1px solid var(--border); border-radius:16px; padding:28px;">
+          <h4 style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-light);margin-bottom:20px;">Core Competencies</h4>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:0.85rem;font-weight:500;color:var(--text-mid);">PPC Strategy & Management</span><span style="font-size:0.8rem;color:var(--gold);font-family:'DM Mono',monospace;">90%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="90%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:0.85rem;font-weight:500;color:var(--text-mid);">Amazon SEO & Listings</span><span style="font-size:0.8rem;color:var(--gold);font-family:'DM Mono',monospace;">88%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="88%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:0.85rem;font-weight:500;color:var(--text-mid);">Market Research & Analysis</span><span style="font-size:0.8rem;color:var(--gold);font-family:'DM Mono',monospace;">85%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="85%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:0.85rem;font-weight:500;color:var(--text-mid);">Catalog & Variation Setup</span><span style="font-size:0.8rem;color:var(--gold);font-family:'DM Mono',monospace;">82%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="82%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label fade-in">Expertise</div>
+    <h2 class="section-title fade-in">What I Bring to Your Brand</h2>
+    <div class="divider fade-in"></div>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>PPC Management</h3>
+        <p>Managed $20k+ in monthly ad spend with focused ACOS and TACOS goals using advanced campaign architecture.</p>
+        <div class="skill-bars">
+          <div class="bar-row">
+            <div class="bar-label"><span>Sponsored Products</span><strong>92%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="92%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Budget Optimization</span><strong>88%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="88%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="fa-solid fa-search"></i></div>
+        <h3>Amazon SEO</h3>
+        <p>Optimized 180+ listings for stronger indexing, visibility, and higher conversions through strategic keyword placement.</p>
+        <div class="skill-bars">
+          <div class="bar-row">
+            <div class="bar-label"><span>Listing Optimization</span><strong>90%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="90%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Keyword Indexing</span><strong>85%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="85%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="fa-solid fa-chart-bar"></i></div>
+        <h3>Market Intelligence</h3>
+        <p>Deep competitor analysis, market validation, and opportunity mapping using Helium 10, DataRova, and ASINsight.</p>
+        <div class="skill-bars">
+          <div class="bar-row">
+            <div class="bar-label"><span>Competitor Research</span><strong>87%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="87%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Product Validation</span><strong>83%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="83%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h3>Launch Strategy</h3>
+        <p>Data-backed product launch and ranking strategies that drive rapid visibility and sustainable sales momentum.</p>
+        <div class="skill-bars">
+          <div class="bar-row">
+            <div class="bar-label"><span>Launch Planning</span><strong>86%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="86%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Rank Acceleration</span><strong>81%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="81%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Catalog Management</h3>
+        <p>Expert in variation setup, flat files, and catalog restructuring to eliminate inefficiencies and boost brand clarity.</p>
+        <div class="skill-bars">
+          <div class="bar-row">
+            <div class="bar-label"><span>Flat File Handling</span><strong>88%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="88%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Variation Setup</span><strong>85%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="85%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Brand Strategy</h3>
+        <p>Building brand systems that move sellers from confusion to clarity — from weak positioning to sustainable market presence.</p>
+        <div class="skill-bars">
+          <div class="bar-row">
+            <div class="bar-label"><span>Brand Positioning</span><strong>84%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="84%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Growth Systems</span><strong>80%</strong></div>
+            <div class="bar-track"><div class="bar-fill" data-width="80%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label fade-in">Career</div>
+    <h2 class="section-title fade-in">Work Experience</h2>
+    <div class="divider fade-in"></div>
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-company">PMP Products LLC</div>
+              <div class="timeline-role">PPC Assistant</div>
+            </div>
+            <div class="timeline-date">Sep 2025 – Present</div>
+          </div>
+          <div class="timeline-location"><i class="fa-solid fa-location-dot"></i> United States (Remote from Lahore, Pakistan)</div>
+          <div class="timeline-body">
+            <ul>
+              <li>Managing and optimizing Amazon PPC campaigns with data-driven strategies to achieve targeted ACOS and TACOS goals.</li>
+              <li>Analyzing campaign performance metrics and implementing bid adjustments to maximize ROI on ad spend.</li>
+              <li>Conducting keyword research and competitor analysis using Helium 10 and advanced tools to identify growth opportunities.</li>
+              <li>Collaborating with the brand growth team to align PPC strategy with overall listing and SEO objectives.</li>
+            </ul>
+          </div>
+          <div class="timeline-tags">
+            <span class="t-tag">Amazon PPC</span>
+            <span class="t-tag">Helium 10</span>
+            <span class="t-tag">ACOS Optimization</span>
+            <span class="t-tag">Keyword Research</span>
+            <span class="t-tag">Campaign Management</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-company">Freelance / Independent</div>
+              <div class="timeline-role">Amazon Brand Strategist</div>
+            </div>
+            <div class="timeline-date">2024 – 2025</div>
+          </div>
+          <div class="timeline-location"><i class="fa-solid fa-location-dot"></i> Remote — Lahore, Pakistan</div>
+          <div class="timeline-body">
+            <ul>
+              <li>Supported private label brands in scaling by identifying and fixing inefficient catalog structures, unnecessary ad spending, and weak SEO.</li>
+              <li>Managed $20k+ in monthly ad spend with focused ACOS and TACOS goals across multiple brand accounts.</li>
+              <li>Optimized 180+ listings for stronger indexing, visibility, and higher conversion rates.</li>
+              <li>Executed data-backed launch and ranking strategies using DataRova, Data Dive, and ASINsight for market validation.</li>
+            </ul>
+          </div>
+          <div class="timeline-tags">
+            <span class="t-tag">Private Label</span>
+            <span class="t-tag">Listing Optimization</span>
+            <span class="t-tag">DataRova</span>
+            <span class="t-tag">Data Dive</span>
+            <span class="t-tag">Brand Scaling</span>
+            <span class="t-tag">$20k+ Ad Spend</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label fade-in">Academic</div>
+    <h2 class="section-title fade-in">Education</h2>
+    <div class="divider fade-in"></div>
+    <div class="edu-grid">
+      <div class="edu-card fade-in">
+        <div class="edu-icon"><i class="fa-solid fa-university"></i></div>
+        <div class="edu-degree">Bachelor of Science</div>
+        <div class="edu-field">Computer Science</div>
+        <div class="edu-school"><i class="fa-solid fa-building-columns"></i> The Superior University, Lahore</div>
+        <div class="edu-dates"><i class="fa-regular fa-calendar"></i> Sep 2024 – Sep 2028</div>
+        <p style="margin-top:16px;font-size:0.84rem;color:var(--text-light);line-height:1.6;">Developing analytical thinking and structured problem-solving skills that directly enhance strategic decision-making in e-commerce.</p>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="edu-degree">Intermediate (ICS)</div>
+        <div class="edu-field">Computer Science</div>
+        <div class="edu-school"><i class="fa-solid fa-building-columns"></i> Government College of Science, Lahore</div>
+        <div class="edu-dates"><i class="fa-regular fa-calendar"></i> Sep 2022 – Sep 2024</div>
+        <p style="margin-top:16px;font-size:0.84rem;color:var(--text-light);line-height:1.6;">Built a strong foundation in computer science fundamentals, mathematics, and logical problem-solving — the basis for data-driven strategic thinking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENTS & ACHIEVEMENTS ── -->
+<section id="events">
+  <div class="section-inner">
+    <div class="section-label fade-in">Milestones</div>
+    <h2 class="section-title fade-in">Events & Achievements</h2>
+    <div class="divider fade-in"></div>
+    <div class="events-grid">
+      <div class="event-card fade-in">
+        <div class="event-number">01</div>
+        <div class="event-icon"><i class="fa-solid fa-trophy"></i></div>
+        <div class="event-title">$20K+ Monthly Ad Spend Managed</div>
+        <div class="event-date"><i class="fa-regular fa-calendar"></i> 2024 – Present</div>
+        <div class="event-desc">Successfully managed and scaled Amazon advertising budgets exceeding $20,000/month with optimized ACOS and TACOS outcomes for multiple brands.</div>
+        <span class="event-badge"><i class="fa-solid fa-star" style="color:var(--gold);font-size:0.7rem;"></i> Key Achievement</span>
+      </div>
+      <div class="event-card fade-in">
+        <div class="event-number">02</div>
+        <div class="event-icon"><i class="fa-solid fa-list-check"></i></div>
+        <div class="event-title">180+ Listings Optimized</div>
+        <div class="event-date"><i class="fa-regular fa-calendar"></i> 2024 – Present</div>
+        <div class="event-desc">Revamped and optimized over 180 Amazon product listings for better keyword indexing, search visibility, and conversion rate improvements.</div>
+        <span class="event-badge"><i class="fa-solid fa-star" style="color:var(--gold);font-size:0.7rem;"></i> Key Achievement</span>
+      </div>
+      <div class="event-card fade-in">
+        <div class="event-number">03</div>
+        <div class="event-icon"><i class="fa-solid fa-briefcase"></i></div>
+        <div class="event-title">Joined PMP Products LLC</div>
+        <div class="event-date"><i class="fa-regular fa-calendar"></i> September 2025</div>
+        <div class="event-desc">Onboarded as PPC Assistant at a US-based Amazon brand management company, working on live campaigns and growth strategies.</div>
+        <span class="event-badge"><i class="fa-solid fa-building" style="font-size:0.7rem;"></i> Career Milestone</span>
+      </div>
+      <div class="event-card fade-in">
+        <div class="event-number">04</div>
+        <div class="event-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="event-title">CS Degree — The Superior University</div>
+        <div class="event-date"><i class="fa-regular fa-calendar"></i> September 2024</div>
+        <div class="event-desc">Enrolled in Bachelor of Computer Science, combining academic structured thinking with practical Amazon e-commerce experience.</div>
+        <span class="event-badge"><i class="fa-solid fa-book" style="font-size:0.7rem;"></i> Academic</span>
+      </div>
+      <div class="event-card fade-in">
+        <div class="event-number">05</div>
+        <div class="event-icon"><i class="fa-solid fa-rocket"></i></div>
+        <div class="event-title">First Brand Launch & Ranking Success</div>
+        <div class="event-date"><i class="fa-regular fa-calendar"></i> 2024</div>
+        <div class="event-desc">Executed complete product launch strategy — from market research and validation to PPC launch and organic rank acceleration — delivering measurable results.</div>
+        <span class="event-badge"><i class="fa-solid fa-star" style="color:var(--gold);font-size:0.7rem;"></i> Key Achievement</span>
+      </div>
+      <div class="event-card fade-in">
+        <div class="event-number">06</div>
+        <div class="event-icon"><i class="fa-solid fa-globe"></i></div>
+        <div class="event-title">Portfolio Launch</div>
+        <div class="event-date"><i class="fa-regular fa-calendar"></i> 2025</div>
+        <div class="event-desc">Launched personal portfolio website to showcase expertise in Amazon brand strategy, PPC management, and e-commerce growth systems.</div>
+        <span class="event-badge"><i class="fa-solid fa-code" style="font-size:0.7rem;"></i> Digital Presence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label fade-in">Contact</div>
+        <h2 class="section-title fade-in">Let's Work Together</h2>
+        <p class="section-sub fade-in" style="color:rgba(255,255,255,0.55);">Whether you're launching a product or pushing past a growth plateau, let's connect and take your Amazon brand to the next level.</p>
+        <div class="contact-items fade-in">
+          <a href="mailto:shayan.inspiratek@gmail.com" class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-info"><strong>Email</strong><span>shayan.inspiratek@gmail.com</span></div>
+          </a>
+          <a href="https://www.linkedin.com/in/shayanrana-30b6303a3" target="_blank" class="contact-item">
+            <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div class="contact-info"><strong>LinkedIn</strong><span>linkedin.com/in/shayanrana</span></div>
+          </a>
+          <a href="#" class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-info"><strong>Location</strong><span>Lahore, Punjab, Pakistan</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right fade-in">
+        <div class="contact-cta-box">
+          <h3>Ready to Scale Your Brand?</h3>
+          <p>I work with founders, operators, and growth-driven brands ready to level up their Amazon presence with strategic, data-backed systems.</p>
+          <a href="mailto:shayan.inspiratek@gmail.com" class="btn-gold"><i class="fa-solid fa-paper-plane"></i> Send a Message</a>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/shayanrana-30b6303a3" target="_blank" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:shayan.inspiratek@gmail.com" class="social-link"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://shayan-rana-7fc05nz.gamma.site/" target="_blank" class="social-link"><i class="fa-solid fa-globe"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2025 <span>Shayan Rana</span> · Amazon Brand Strategist & PPC Manager · Lahore, Pakistan · Built with ❤️ for growth</p>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Skill bars animation
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width;
+        });
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.skill-card, .about-grid').forEach(el => barObserver.observe(el));
+</script>
+</body>
+</html>
